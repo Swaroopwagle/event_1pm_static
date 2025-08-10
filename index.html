@@ -1,13 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            width: 86%;
+            margin: auto;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <section>
+        <div class="container flex flex-col gap-[40px] ">
+
+            <h2 class="text-[32px] font-semibold">Trending Events</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[24px]">
+
+                <!-- 1st card -->
+                <div class="relative flex flex-col rounded-[8px]  shadow-lg ">
+                    <p
+                        class="absolute top-[8px] left-[8px] text-[12px] text-[white] font-semibold py-[4px] px-[8px] rounded-[4px] bg-[red]">
+                        Hot pick</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
+                        alt="" class=" h-[208px] rounded-t-[8px]">
+                    <div class="flex flex-col gap-[16px] p-[16px]">
+
+                        <div class="flex flex-col gap-[8px]">
+                            <h3 class="text-[20px] font-medium">Tribal Rain</h3>
+                            <div class="flex flex-col gap-[4px]">
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-calendar"></i>Bhaisakh -16, 7:00-11:00pm</p>
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-location-dot"></i>Dharan-16, Stadium</p>
+
+                            </div>
+                        </div>
+                        <div class="flex flex-col text-center gap-[8px]">
+                            <a href="" class="btn-primary">Buy Tickets</a>
+                            <a href="" class="btn--secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- card end -->
+
+                <!-- 2nd card -->
+                <div class="relative flex flex-col rounded-[8px]  shadow-lg ">
+                    <p
+                        class="absolute top-[8px] left-[8px] text-[12px] text-[white] font-semibold py-[4px] px-[8px] rounded-[4px] bg-[red]">
+                        Hot pick</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
+                        alt="" class=" h-[208px] rounded-t-[8px]">
+                    <div class="flex flex-col gap-[16px] p-[16px]">
+
+                        <div class="flex flex-col gap-[8px]">
+                            <h3 class="text-[20px] font-medium">Tribal Rain</h3>
+                            <div class="flex flex-col gap-[4px]">
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-calendar"></i>Bhaisakh -16, 7:00-11:00pm</p>
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-location-dot"></i>Dharan-16, Stadium</p>
+
+                            </div>
+                        </div>
+                        <div class="flex flex-col text-center gap-[8px]">
+                            <a href="" class="btn-primary">Buy Tickets</a>
+                            <a href="" class="btn--secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- card end -->
+
+                <!-- 3rd card -->
+                  <div class="relative flex flex-col rounded-[8px]  shadow-lg ">
+                    <p
+                        class="absolute top-[8px] left-[8px] text-[12px] text-[white] font-semibold py-[4px] px-[8px] rounded-[4px] bg-[red]">
+                        Hot pick</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
+                        alt="" class=" h-[208px] rounded-t-[8px]">
+                    <div class="flex flex-col gap-[16px] p-[16px]">
+
+                        <div class="flex flex-col gap-[8px]">
+                            <h3 class="text-[20px] font-medium">Tribal Rain</h3>
+                            <div class="flex flex-col gap-[4px]">
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-calendar"></i>Bhaisakh -16, 7:00-11:00pm</p>
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-location-dot"></i>Dharan-16, Stadium</p>
+
+                            </div>
+                        </div>
+                        <div class="flex flex-col text-center gap-[8px]">
+                            <a href="" class="btn-primary">Buy Tickets</a>
+                            <a href="" class="btn--secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- card end -->
+
+                <!-- 4th card -->
+                  <div class="relative flex flex-col rounded-[8px]  shadow-lg ">
+                    <p
+                        class="absolute top-[8px] left-[8px] text-[12px] text-[white] font-semibold py-[4px] px-[8px] rounded-[4px] bg-[red]">
+                        Hot pick</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
+                        alt="" class=" h-[208px] rounded-t-[8px]">
+                    <div class="flex flex-col gap-[16px] p-[16px]">
+
+                        <div class="flex flex-col gap-[8px]">
+                            <h3 class="text-[20px] font-medium">Tribal Rain</h3>
+                            <div class="flex flex-col gap-[4px]">
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-calendar"></i>Bhaisakh -16, 7:00-11:00pm</p>
+                                <p class="flex gap-[4px] items-center text-[14px]"> <i
+                                        class="fa-solid fa-location-dot"></i>Dharan-16, Stadium</p>
+
+                            </div>
+                        </div>
+                        <div class="flex flex-col text-center gap-[8px]">
+                            <a href="" class="btn-primary">Buy Tickets</a>
+                            <a href="" class="btn--secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- card end -->
+            </div>
+
+        </div>
+    </section>
+
 </body>
+
 </html>
