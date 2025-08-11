@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,21 +16,60 @@
         }
     </style>
 </head>
+
 <body>
     <section>
         <div class="container flex flex-col gap-[40px] ">
-            <h2 class="text-[32px] font-semibold">
+            <h2 class="text-[20px] md:text-[24px] lg:text-[32px] font-semibold">
                 How it Works
             </h2>
-            <div>
-                <div class="flex flex-col items-center gap-[16px]">
-                    <i class="fa-solid fa-magnifying-glass p-[10px] text-center bg-[#EC7F00] text-[white]"></i>
-                    <h3 class="tex-[20px] font-medium">1.Find an Event</h3>
-                    <p class="text-[14px]">Browse a wide range of concerts, shows, and festivals happening near you. Fi</p>
+          
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+                  <!-- first card -->
+                <div class="flex flex-col items-center gap-[12px] md:gap-[14px] lg:gap-[16px]">
+                    <div
+                        class="text-center flex items-center justify-center p-[6px] md:p-[8px] lg:p-[10px] bg-[#EC7F00] h-[32px] md:h-[40px] lg:h-[50px] w-[32px] md:w-[40px] lg:w-[50px]  rounded-full">
+
+                        <i
+                            class="fa-solid fa-magnifying-glass text-[16px] md:text-[20px] lg:text-[24px]  text-[white]"></i>
+                    </div>
+                    <h3 class="text-[16px] md:text-[18px] lg:text-[20px] font-medium text-center">1.Find an Event</h3>
+                    <p class=" text-[14px] md:text-[16px] px-[16px] text-center">Browse a wide range of concerts, shows,
+                        and festivals happening near you. Fi</p>
                 </div>
+
+
+                <!-- Second Card -->
+                <div class="flex flex-col items-center gap-[12px] md:gap-[14px] lg:gap-[16px]">
+                    <div
+                         class="text-center flex items-center justify-center p-[6px] md:p-[8px] lg:p-[10px] bg-[#EC7F00] h-[32px] md:h-[40px] lg:h-[50px] w-[32px] md:w-[40px] lg:w-[50px]  rounded-full">
+                       
+                        <i class="fa-solid fa-credit-card text-[16px] md:text-[20px] lg:text-[24px]  text-[white]"></i>
+
+                    
+                    </div>
+                    <h3 class="text-[16px] md:text-[18px] lg:text-[20px] font-medium text-center">2.Book Instantly</h3>
+                    <p class=" text-[14px] md:text-[16px] px-[16px] text-center">Browse a wide range of concerts, shows,
+                        and festivals happening near you. Fi</p>
+                </div>
+
+                <!-- third card -->
+                <div class="flex flex-col items-center gap-[12px] md:gap-[14px] lg:gap-[16px]">
+                    <div
+                        class="text-center flex items-center justify-center p-[6px] md:p-[8px] lg:p-[10px] bg-[#EC7F00] h-[32px] md:h-[40px] lg:h-[50px] w-[32px] md:w-[40px] lg:w-[50px]  rounded-full">
+
+                       <i class="fa-solid fa-ticket text-[16px] md:text-[20px] lg:text-[24px]  text-[white]"></i>
+                    </div>
+                    <h3 class="text-[16px] md:text-[18px] lg:text-[20px] font-medium text-center">3.Get e-Ticket</h3>
+                    <p class=" text-[14px] md:text-[16px] px-[16px] text-center">Browse a wide range of concerts, shows,
+                        and festivals happening near you. Fi</p>
+                </div>
+
+
             </div>
         </div>
     </section>
-    
+
 </body>
+
 </html>
