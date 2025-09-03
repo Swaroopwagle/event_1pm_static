@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Two Column Layout */
+        .services-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .service-item {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 28px;
+            transform: translateY(0) rotate(0);
+            transition: all 0.4s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .service-item:hover .service-icon {
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            background: inherit;
+            filter: blur(15px);
+            opacity: 0.4;
+            z-index: -1;
+            transform: translateY(5px) scale(0.9);
+            transition: all 0.4s ease;
+        }
+        
+        .service-item:hover .service-icon::after {
+            transform: translateY(10px) scale(1.1);
+            opacity: 0.6;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            color: #f1f5f9;
+            margin-bottom: 5px;
+        }
+        
+        .service-subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+        
+        .service-content {
+            margin-top: 15px;
+        }
+        
+        .service-content p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+        
+        .service-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: #cbd5e1;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s ease;
+        }
+        
+        .service-item:hover .service-features li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .service-item:hover .service-features li:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .service-item:hover .service-features li:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .service-item:hover .service-features li:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .service-features li i {
+            color: #6366f1;
+            margin-right: 10px;
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            align-self: flex-start;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .cta-button i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover i {
+            transform: translateX(4px);
+        }
+        
+        /* Different colors for each service */
+        .service-item:nth-child(1) .service-icon,
+        .service-item:nth-child(1)::before {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        .service-item:nth-child(1):hover .service-icon {
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .service-item:nth-child(2) .service-icon,
+        .service-item:nth-child(2)::before {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .service-item:nth-child(2):hover .service-icon {
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .service-item:nth-child(3) .service-icon,
+        .service-item:nth-child(3)::before {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .service-item:nth-child(3):hover .service-icon {
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.3);
+        }
+        
+        .service-item:nth-child(4) .service-icon,
+        .service-item:nth-child(4)::before {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+        }
+        
+        .service-item:nth-child(4):hover .service-icon {
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.3);
+        }
+        
+        .service-item:nth-child(5) .service-icon,
+        .service-item:nth-child(5)::before {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .service-item:nth-child(5):hover .service-icon {
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+        }
+        
+        .service-item:nth-child(6) .service-icon,
+        .service-item:nth-child(6)::before {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .service-item:nth-child(6):hover .service-icon {
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 80px;
+            padding: 40px;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+            min-width: 180px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .services-columns {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .stats-section {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-item {
+                padding: 25px 20px;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+        
+        /* Micro-interaction animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        
+        .service-icon {
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .service-item:nth-child(1) .service-icon {
+            animation-delay: 0s;
+        }
+        
+        .service-item:nth-child(2) .service-icon {
+            animation-delay: 1s;
+        }
+        
+        .service-item:nth-child(3) .service-icon {
+            animation-delay: 2s;
+        }
+        
+        .service-item:nth-child(4) .service-icon {
+            animation-delay: 3s;
+        }
+        
+        .service-item:nth-child(5) .service-icon {
+            animation-delay: 4s;
+        }
+        
+        .service-item:nth-child(6) .service-icon {
+            animation-delay: 5s;
+        }
+        
+        /* Subtle background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            z-index: -1;
+            animation: backgroundMove 20s infinite alternate ease-in-out;
+        }
+        
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 20px) scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Services</h1>
+            <p>Comprehensive full-stack development services to bring your digital vision to life</p>
+        </div>
+        
+        <div class="services-columns">
+            <!-- Column 1 -->
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Frontend Development</h3>
+                        <p class="service-subtitle">Creating engaging user interfaces</p>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p>Building responsive, interactive user interfaces with modern frameworks and libraries that provide exceptional user experiences across all devices.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> React, Angular, Vue.js</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> UI/UX Implementation</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Database Management</h3>
+                        <p class="service-subtitle">Optimized data solutions</p>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p>Designing and optimizing databases for performance, security, and scalability to ensure your data is organized and accessible when you need it.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> SQL & NoSQL Databases</li>
+                        <li><i class="fas fa-check"></i> Database Design</li>
+                        <li><i class="fas fa-check"></i> Query Optimization</li>
+                        <li><i class="fas fa-check"></i> Data Migration</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div>
+                        <h3 class="service-title">E-commerce Solutions</h3>
+                        <p class="service-subtitle">Online stores that convert</p>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p>Building secure, scalable online stores with payment integration and inventory management to help you sell products and services online effectively.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Payment Integration</li>
+                        <li><i class="fas fa-check"></i> Shopping Cart Systems</li>
+                        <li><i class="fas fa-check"></i> Inventory Management</li>
+                        <li><i class="fas fa-check"></i> Order Processing</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Column 2 -->
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Backend Development</h3>
+                        <p class="service-subtitle">Powerful server-side solutions</p>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p>Building robust server-side applications, APIs, and business logic that power your web applications and ensure reliability and security.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Node.js, Python, PHP</li>
+                        <li><i class="fas fa-check"></i> REST & GraphQL APIs</li>
+                        <li><i class="fas fa-check"></i> Authentication Systems</li>
+                        <li><i class="fas fa-check"></i> Server Architecture</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="service-title">DevOps & Deployment</h3>
+                        <p class="service-subtitle">Seamless deployment pipelines</p>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p>Setting up deployment pipelines, cloud infrastructure, and continuous integration to ensure smooth delivery and operation of your applications.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> CI/CD Pipelines</li>
+                        <li><i class="fas fa-check"></i> Cloud Services (AWS, Azure)</li>
+                        <li><i class="fas fa-check"></i> Docker & Kubernetes</li>
+                        <li><i class="fas fa-check"></i> Performance Monitoring</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Maintenance & Support</h3>
+                        <p class="service-subtitle">Keeping your systems running</p>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <p>Ongoing website maintenance, updates, and technical support to keep your application running smoothly, securely, and up-to-date with the latest technologies.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Regular Updates</li>
+                        <li><i class="fas fa-check"></i> Bug Fixing</li>
+                        <li><i class="fas fa-check"></i> Security Patches</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number" id="projectCount">50+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="clientCount">35+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="experienceCount">5+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="supportCount">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effect to service items
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            serviceItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 20px 30px rgba(0, 0, 0, 0.2)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Counter animation for stats
+            function animateCounter(element, target, duration) {
+                let startTime = null;
+                const startValue = 0;
+                
+                function updateCounter(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    
+                    const value = Math.floor(progress * (target - startValue) + startValue);
+                    element.textContent = value + (element.id === 'supportCount' ? '' : '+');
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+                
+                requestAnimationFrame(updateCounter);
+            }
+            
+            // Start counter animations when stats section is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(document.getElementById('projectCount'), 50, 2000);
+                        animateCounter(document.getElementById('clientCount'), 35, 2000);
+                        animateCounter(document.getElementById('experienceCount'), 5, 2000);
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.querySelector('.stats-section'));
+        });
+    </script>
+</body>
+</html>

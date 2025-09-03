@@ -1,87 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <title>Swiper demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Demo styles -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Draggable Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #000;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #fff;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         }
-
-        .swiper {
+        
+        body {
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .discount-container {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .discount-wrapper {
+            display: flex;
             width: 100%;
             height: 100%;
+            transition: transform 0.3s ease;
+            cursor: grab;
+            user-select: none;
         }
-
-        .swiper-slide {
+        
+        .discount-wrapper.grabbing {
+            cursor: grabbing;
+            transition: none;
+        }
+        
+        .discount-slide {
+            flex: 0 0 auto;
             text-align: center;
             font-size: 18px;
             background: #444;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 300px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
-
-        .swiper-slide img {
+        
+        .discount-slide img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        
+        .discount-pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .discount-bullet {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        
+        .discount-bullet.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+        
+        .discount-button-next,
+        .discount-button-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10;
+            border: none;
+            transition: background 0.3s ease;
+        }
+        
+        .discount-button-next:hover,
+        .discount-button-prev:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .discount-button-next {
+            right: 10px;
+        }
+        
+        .discount-button-prev {
+            left: 10px;
+        }
+        
+        .slide-content {
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .slide-1 { background: linear-gradient(45deg, #ff4e50, #f9d423); }
+        .slide-2 { background: linear-gradient(45deg, #5c258d, #4389a2); }
+        .slide-3 { background: linear-gradient(45deg, #13547a, #80d0c7); }
+        .slide-4 { background: linear-gradient(45deg, #ff758c, #ff7eb3); }
+        .slide-5 { background: linear-gradient(45deg, #6a11cb, #2575fc); }
     </style>
 </head>
-
 <body>
-    <!-- Swiper -->
-    <div class="swiper flex flex-col mySwiper">
-        <div class="swiper-wrapper flex">
-            <div class="swiper-slide w-full">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
+    <div class="discount-container">
+        <div class="discount-wrapper">
+            <div class="discount-slide slide-1">
+                <div class="slide-content">Slide 1</div>
+            </div>
+            <div class="discount-slide slide-2">
+                <div class="slide-content">Slide 2</div>
+            </div>
+            <div class="discount-slide slide-3">
+                <div class="slide-content">Slide 3</div>
+            </div>
+            <div class="discount-slide slide-4">
+                <div class="slide-content">Slide 4</div>
+            </div>
+            <div class="discount-slide slide-5">
+                <div class="slide-content">Slide 5</div>
+            </div>
         </div>
-        <div class="swiper-pagination"></div>
+        
+        <div class="discount-pagination"></div>
+        
+        <div class="discount-button-prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="discount-button-next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
     </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1.5,
-            spaceBetween: 30,
-            centeredSlides: true,
-            loop:true,
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize variables with discount prefix
+            const discountContainer = document.querySelector('.discount-container');
+            const discountWrapper = document.querySelector('.discount-wrapper');
+            const discountSlides = document.querySelectorAll('.discount-slide');
+            const discountPrevBtn = document.querySelector('.discount-button-prev');
+            const discountNextBtn = document.querySelector('.discount-button-next');
+            const discountPagination = document.querySelector('.discount-pagination');
             
-
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+            // Configuration
+            let discountCurrentIndex = 0;
+            const discountSlidesCount = discountSlides.length;
+            const discountSlidesPerView = 1.5;
+            const discountSpaceBetween = 40;
+            let discountIsCentered = true;
+            let discountIsLooping = true;
+            
+            // Drag variables
+            let discountStartPos = 0;
+            let discountCurrentTranslate = 0;
+            let discountPrevTranslate = 0;
+            let discountIsDragging = false;
+            let discountAnimationID = 0;
+            
+            // Set initial slide sizes and positions
+            function discountUpdateSlideSizes() {
+                const containerWidth = discountContainer.offsetWidth;
+                const slideWidth = (containerWidth - (discountSpaceBetween * (discountSlidesPerView - 1))) / discountSlidesPerView;
+                
+                discountSlides.forEach(slide => {
+                    slide.style.width = `${slideWidth}px`;
+                    slide.style.marginRight = `${discountSpaceBetween}px`;
+                });
+                
+                discountUpdateSliderPosition();
+            }
+            
+            // Update slider position based on current index
+            function discountUpdateSliderPosition() {
+                const containerWidth = discountContainer.offsetWidth;
+                const slideWidth = (containerWidth - (discountSpaceBetween * (discountSlidesPerView - 1))) / discountSlidesPerView;
+                
+                let translateValue = 0;
+                
+                if (discountIsCentered) {
+                    const offset = (containerWidth - slideWidth) / 2 - (discountCurrentIndex * (slideWidth + discountSpaceBetween));
+                    translateValue = offset;
+                } else {
+                    translateValue = -discountCurrentIndex * (slideWidth + discountSpaceBetween);
+                }
+                
+                discountWrapper.style.transform = `translateX(${translateValue}px)`;
+                discountCurrentTranslate = translateValue;
+                discountPrevTranslate = translateValue;
+                
+                // Update pagination
+                discountUpdatePagination();
+            }
+            
+            // Create pagination bullets
+            function discountInitPagination() {
+                discountPagination.innerHTML = '';
+                
+                for (let i = 0; i < discountSlidesCount; i++) {
+                    const bullet = document.createElement('div');
+                    bullet.classList.add('discount-bullet');
+                    if (i === discountCurrentIndex) {
+                        bullet.classList.add('active');
+                    }
+                    
+                    bullet.addEventListener('click', () => {
+                        discountCurrentIndex = i;
+                        discountUpdateSliderPosition();
+                    });
+                    
+                    discountPagination.appendChild(bullet);
+                }
+            }
+            
+            // Update pagination active state
+            function discountUpdatePagination() {
+                const bullets = document.querySelectorAll('.discount-bullet');
+                bullets.forEach((bullet, index) => {
+                    if (index === discountCurrentIndex) {
+                        bullet.classList.add('active');
+                    } else {
+                        bullet.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Navigation functions
+            function discountGoToNext() {
+                if (discountCurrentIndex < discountSlidesCount - 1) {
+                    discountCurrentIndex++;
+                } else if (discountIsLooping) {
+                    discountCurrentIndex = 0;
+                }
+                discountUpdateSliderPosition();
+            }
+            
+            function discountGoToPrev() {
+                if (discountCurrentIndex > 0) {
+                    discountCurrentIndex--;
+                } else if (discountIsLooping) {
+                    discountCurrentIndex = discountSlidesCount - 1;
+                }
+                discountUpdateSliderPosition();
+            }
+            
+            // Drag functionality
+            function discountTouchStart(index) {
+                return function(event) {
+                    discountStartPos = getPositionX(event);
+                    discountIsDragging = true;
+                    
+                    discountAnimationID = requestAnimationFrame(discountAnimation);
+                    discountWrapper.classList.add('grabbing');
+                }
+            }
+            
+            function discountTouchMove(event) {
+                if (discountIsDragging) {
+                    const currentPosition = getPositionX(event);
+                    discountCurrentTranslate = discountPrevTranslate + currentPosition - discountStartPos;
+                }
+            }
+            
+            function discountTouchEnd() {
+                cancelAnimationFrame(discountAnimationID);
+                discountIsDragging = false;
+                
+                const containerWidth = discountContainer.offsetWidth;
+                const slideWidth = (containerWidth - (discountSpaceBetween * (discountSlidesPerView - 1))) / discountSlidesPerView;
+                
+                const movedBy = discountCurrentTranslate - discountPrevTranslate;
+                
+                // If moved enough, then change slide
+                if (movedBy < -100) {
+                    discountGoToNext();
+                } else if (movedBy > 100) {
+                    discountGoToPrev();
+                } else {
+                    discountUpdateSliderPosition();
+                }
+                
+                discountWrapper.classList.remove('grabbing');
+            }
+            
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+            
+            function discountAnimation() {
+                discountWrapper.style.transform = `translateX(${discountCurrentTranslate}px)`;
+                if (discountIsDragging) {
+                    requestAnimationFrame(discountAnimation);
+                }
+            }
+            
+            // Event listeners
+            discountNextBtn.addEventListener('click', discountGoToNext);
+            discountPrevBtn.addEventListener('click', discountGoToPrev);
+            
+            // Add drag events
+            discountWrapper.addEventListener('mousedown', discountTouchStart());
+            discountWrapper.addEventListener('touchstart', discountTouchStart());
+            
+            discountWrapper.addEventListener('mousemove', discountTouchMove);
+            discountWrapper.addEventListener('touchmove', discountTouchMove);
+            
+            discountWrapper.addEventListener('mouseup', discountTouchEnd);
+            discountWrapper.addEventListener('mouseleave', discountTouchEnd);
+            discountWrapper.addEventListener('touchend', discountTouchEnd);
+            
+            // Handle window resize
+            window.addEventListener('resize', discountUpdateSlideSizes);
+            
+            // Initialize the slider
+            discountInitPagination();
+            discountUpdateSlideSizes();
         });
     </script>
 </body>
-
 </html>
