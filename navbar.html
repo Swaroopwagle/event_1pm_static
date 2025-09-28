@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .container {
+            width: 86%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="">
+        <div class="container">
+            <div><!-- gmail and phone number etc at the top bar-->
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i>novamart@gmail.com </li>
+                    <li><i class="fa-solid fa-phone"></i>9862284435</li>
+                </ul>
+                <ul>
+                    <li>Welcome to novamart</li>
+                    <li>FAQs</li>
+                    <li>Help?</li>
+                </ul>
+            </div>
+            <div><!--logo and the search bar-->
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png"
+                        alt="">
+                    <form action="/search" method="get">
+                        <input type="text" placeholder="Search for products brands and more">
+
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black "
+                            type="button">All Categories<i class="fa-solid fa-chevron-down"></i>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden ">
+                            <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 ">Dashboard</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                    </form>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-solid fa-user"></i>
+                                <p> My Account</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <p>cart</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-regular fa-heart"></i>
+                                <p>Wishlist</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div>
+
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black " type="button">All
+                        Categories<i class="fa-solid fa-chevron-down"></i>
+                    </button>
+    
+                    <!-- Dropdown menu -->
+                    <div id="dropdown" class="z-10 hidden ">
+                        <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 ">Dashboard</a>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li>
+                        <a href="">New Arrivals</a>
+                    </li>
+                    <li>
+                        <a href="">Refurbished</a>
+                    </li>
+                    <li>
+                        <a href="">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="">Blogs</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+    </header>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+</body>
+
+</html>
