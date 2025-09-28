@@ -20,26 +20,31 @@
 
 <body>
     <header class="">
-        <div class="container">
-            <div><!-- gmail and phone number etc at the top bar-->
-                <ul>
-                    <li><i class="fa-solid fa-envelope"></i>novamart@gmail.com </li>
-                    <li><i class="fa-solid fa-phone"></i>9862284435</li>
-                </ul>
-                <ul>
-                    <li>Welcome to novamart</li>
-                    <li>FAQs</li>
-                    <li>Help?</li>
-                </ul>
+        <div class="flex  flex-col ">
+            <div class="w-full border border-[#E0E0E0] ">
+
+                <div class="flex container  justify-between w-full"><!-- gmail and phone number etc at the top bar-->
+                    <ul class="flex ">
+                        <li class="p-[10px] flex border border-[#E0E0E0] gap-[4px] items-center"><i
+                                class="fa-solid fa-envelope text-[16px]"></i>novamart@gmail.com </li>
+                        <li class="p-[10px] border border-[#E0E0E0] flex gap-[4px] items-center"><i
+                                class="fa-solid fa-phone text-[16px]"></i>9862284435</li>
+                    </ul>
+                    <ul class="flex">
+                        <li class=" border border-[#E0E0E0] py-[10px] px-[15px] flex gap-[4px] items-center">Help?</li>
+                        <li class=" border border-[#E0E0E0] py-[10px] px-[15px] flex gap-[4px] items-center">Welcome to novamart</li>
+                        <li class=" border border-[#E0E0E0] py-[10px] px-[15px] flex gap-[4px] items-center">FAQs</li>
+                    </ul>
+                </div>
             </div>
             <div><!--logo and the search bar-->
-                <div>
+                <div class="container flex items-center">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png"
-                        alt="">
-                    <form action="/search" method="get">
-                        <input type="text" placeholder="Search for products brands and more">
+                        alt="" class="w-[138px]">
+                    <form action="/search" method="get" class="flex  border rounded-[18px]">
+                        <input type="text" placeholder="Search for products brands and more" class="w- px-[8px] rounded-tl-[18px] rounded-bl-[18px] " >
 
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black "
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black  "
                             type="button">All Categories<i class="fa-solid fa-chevron-down"></i>
                         </button>
 
@@ -77,42 +82,43 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div>
                 <div>
+                    <div>
 
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black " type="button">All
-                        Categories<i class="fa-solid fa-chevron-down"></i>
-                    </button>
-    
-                    <!-- Dropdown menu -->
-                    <div id="dropdown" class="z-10 hidden ">
-                        <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
-                            <li>
-                                <a href="#" class="block px-4 py-2 ">Dashboard</a>
-                            </li>
-    
-                        </ul>
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black "
+                            type="button">All
+                            Categories<i class="fa-solid fa-chevron-down"></i>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden ">
+                            <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 ">Dashboard</a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <ul>
-                    <li>
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        <a href="">New Arrivals</a>
-                    </li>
-                    <li>
-                        <a href="">Refurbished</a>
-                    </li>
-                    <li>
-                        <a href="">Contact Us</a>
-                    </li>
-                    <li>
-                        <a href="">Blogs</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="">Home</a>
+                        </li>
+                        <li>
+                            <a href="">New Arrivals</a>
+                        </li>
+                        <li>
+                            <a href="">Refurbished</a>
+                        </li>
+                        <li>
+                            <a href="">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="">Blogs</a>
+                        </li>
+                    </ul>
 
+                </div>
             </div>
         </div>
 
