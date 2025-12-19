@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cursor Glow (Tailwind)</title>
+
+  <!-- Tailwind CDN (for quick demo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* custom glow element style (Tailwind doesn't cover this exact need) */
+    .cursor-glow {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none; /* never block clicks */
+      transform: translate(-50%, -50%) scale(1);
+      transition: opacity 180ms linear, transform 180ms linear;
+      will-change: transform, opacity;
+      z-index: 1000;
+      mix-blend-mode: screen;
+    }
+
+    /* radial gradient + blur to create the soft glow */
+    .cursor-glow .dot {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.40) 0%,
+                                          rgba(99,102,241,0.18) 20%,
+                                          rgba(56,189,248,0.08) 50%,
+                                          rgba(56,189,248,0.00) 70%);
+      filter: blur(18px);
+    }
+
+    /* smaller sharp core for extra depth (optional) */
+    .cursor-glow .core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 36px;
+      height: 36px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.9) 0%,
+                                          rgba(99,102,241,0.15) 40%,
+                                          rgba(99,102,241,0.00) 70%);
+      filter: blur(2px);
+    }
+
+    /* start hidden */
+    .cursor-glow.hidden { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+    .cursor-glow.visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+    /* optional: show normal pointer on interactive elements */
+    button, a, input, textarea { cursor: pointer; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
+
+  <!-- Glow element that follows the mouse -->
+  <div id="cursorGlow" class="cursor-glow hidden" aria-hidden="true">
+    <div class="dot"></div>
+    <div class="core"></div>
+  </div>
+
+  <!-- Page layout -->
+  <div class="container mx-auto p-8">
+    <!-- background area is everything outside .content.
+         We'll treat elements with class "content" as areas where glow should be OFF. -->
+    <header class="mb-8">
+      <h1 class="text-3xl font-semibold">Demo: Cursor glow on background only</h1>
+      <p class="text-slate-300 mt-2">Move the mouse over the page background to see the glow. Move over the content (card below) and the glow disappears.</p>
+    </header>
+
+    <!-- A centered content card (this is the "content" where glow must NOT appear) -->
+    <main class="flex justify-center">
+      <section class="content w-full max-w-3xl bg-white/6 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+        <h2 class="text-xl font-medium mb-4">Content area — glow disabled here</h2>
+        <p class="text-slate-200 mb-4">
+          This card represents your website content. When the cursor is inside this element (or any element that has <code>.content</code> or is a child of it),
+          the glow will be hidden so it doesn't distract readers or overlap content.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 bg-white/4 rounded">
+            <p class="text-sm">Interactive elements keep their default cursor behavior:</p>
+            <button class="mt-3 px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-600">A Button</button>
+          </div>
+
+          <div class="p-4 bg-white/4 rounded">
+            <p class="text-sm">Add more content here — the glow won't show while the mouse is here.</p>
+            <input class="mt-3 p-2 rounded bg-white/10 w-full" placeholder="Type something" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Extra background space to move around -->
+    <div class="mt-16 h-[420px]"></div>
+  </div>
+
+  <script>
+    (function () {
+      const glow = document.getElementById('cursorGlow');
+
+      // Elements that should be treated as "content" (no glow)
+      // We consider any element with class "content" as a content area; modify selector if needed.
+      const contentSelector = '.content';
+
+      // Track mouse and update glow
+      document.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // position glow
+        glow.style.left = x + 'px';
+        glow.style.top = y + 'px';
+
+        // Check if the pointer is inside a content area
+        const isInContent = !!e.target.closest(contentSelector);
+
+        if (isInContent) {
+          // hide glow when over content
+          if (!glow.classList.contains('hidden')) {
+            glow.classList.remove('visible');
+            glow.classList.add('hidden');
+          }
+        } else {
+          // show glow when not over content
+          if (!glow.classList.contains('visible')) {
+            glow.classList.remove('hidden');
+            glow.classList.add('visible');
+          }
+        }
+      });
+
+      // Optional: hide glow if pointer leaves window
+      document.addEventListener('mouseleave', () => {
+        glow.classList.remove('visible');
+        glow.classList.add('hidden');
+      });
+
+      // Ensure proper state initially
+      glow.classList.add('hidden');
+
+      // If you want other selectors to be treated as content (for example nav, .article):
+      // change contentSelector above or add multiple classes to your HTML.
+    })();
+  </script>
+</body>
+</html>

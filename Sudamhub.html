@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Migration Services | TechSolutions Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0A84FF',
+                        'background': '#030303',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #030303;
+            color: #f0f0f0;
+        }
+        
+        /* Custom styles for the accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+        }
+        
+        /* Custom carousel styles */
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .carousel-item.active {
+            display: block;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0A84FF;
+            border-radius: 4px;
+        }
+        
+        /* Smooth hover transitions */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(10, 132, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-gray-200 font-inter">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b border-gray-800">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                        <i class="fas fa-bolt text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">TechSolutions</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Services</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">About</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <button class="bg-primary hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-md transition-colors">
+                    Book a Call
+                </button>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-800 pt-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Services</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">About</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-12 md:py-20 px-4">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="inline-block bg-primary/10 text-primary font-medium py-1 px-3 rounded-full mb-4">Cloud Services</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Cloud Migration Services</h1>
+                        <p class="text-xl text-gray-300 mb-8">Seamlessly transition your infrastructure to the cloud with minimal downtime and maximum security. Our expert team ensures a smooth migration process tailored to your business needs.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#cta" class="bg-primary hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-md text-center transition-colors">
+                                Book a Call
+                            </a>
+                            <button class="border border-gray-700 hover:border-primary text-gray-300 hover:text-primary font-medium py-3 px-8 rounded-md transition-colors">
+                                View Portfolio
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-md">
+                            <div class="absolute -top-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+                            <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800 rounded-2xl p-8 shadow-2xl">
+                                <div class="flex justify-center mb-6">
+                                    <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center">
+                                        <i class="fas fa-cloud-upload-alt text-4xl text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-shield-alt text-primary"></i>
+                                        <span>Enterprise-grade security</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-tachometer-alt text-primary"></i>
+                                        <span>99.9% uptime guarantee</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-dollar-sign text-primary"></i>
+                                        <span>Cost-optimized solutions</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-headset text-primary"></i>
+                                        <span>24/7 support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Highlights / Overview -->
+        <section class="py-12 md:py-16 px-4 bg-gray-900/50">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Streamlined Cloud Migration</h2>
+                        <p class="text-gray-300 mb-6">Our comprehensive cloud migration service helps businesses transition from legacy systems to modern cloud infrastructure with precision and care. We handle everything from initial assessment to post-migration optimization.</p>
+                        <p class="text-gray-300">With over 200 successful migrations, we've developed a methodology that minimizes risk while maximizing the benefits of cloud computing: scalability, security, and cost-efficiency.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-lock text-xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Security First</h3>
+                            <p class="text-gray-400">End-to-end encryption and compliance with industry security standards.</p>
+                        </div>
+                        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Minimal Downtime</h3>
+                            <p class="text-gray-400">Strategically planned migration to ensure business continuity.</p>
+                        </div>
+                        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-chart-line text-xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Performance Optimization</h3>
+                            <p class="text-gray-400">Continuous monitoring and optimization for peak performance.</p>
+                        </div>
+                        <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-handshake text-xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Dedicated Support</h3>
+                            <p class="text-gray-400">24/7 expert support during and after the migration process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio / Work Examples -->
+        <section class="py-12 md:py-16 px-4">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Recent Cloud Migrations</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">We've helped businesses of all sizes transition to the cloud. Here are some of our recent success stories.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-r from-primary/30 to-blue-900/30 flex items-center justify-center">
+                            <i class="fas fa-building text-6xl text-primary/50"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">FinanceCorp Migration</h3>
+                            <p class="text-gray-400 mb-4">Migrated a financial services company's entire infrastructure to AWS, ensuring compliance with financial regulations.</p>
+                            <div class="flex items-center text-primary">
+                                <span class="text-sm font-medium">View Case Study</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 2 -->
+                    <div class="bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-r from-primary/30 to-blue-900/30 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-6xl text-primary/50"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">E-Commerce Platform</h3>
+                            <p class="text-gray-400 mb-4">Scaled an e-commerce platform to handle 5x traffic during holiday seasons with zero downtime migration.</p>
+                            <div class="flex items-center text-primary">
+                                <span class="text-sm font-medium">View Case Study</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 3 -->
+                    <div class="bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-r from-primary/30 to-blue-900/30 flex items-center justify-center">
+                            <i class="fas fa-hospital text-6xl text-primary/50"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">Healthcare System Upgrade</h3>
+                            <p class="text-gray-400 mb-4">Migrated patient records and hospital management systems to a HIPAA-compliant cloud environment.</p>
+                            <div class="flex items-center text-primary">
+                                <span class="text-sm font-medium">View Case Study</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Testimonials -->
+        <section class="py-12 md:py-16 px-4 bg-gray-900/50">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Trusted by industry leaders who have experienced our cloud migration expertise firsthand.</p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div id="testimonial-carousel" class="relative">
+                        <!-- Testimonial 1 -->
+                        <div class="carousel-item active">
+                            <div class="bg-gray-800/30 border border-gray-700 rounded-2xl p-8 md:p-10">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-blue-600 flex items-center justify-center text-white font-bold text-xl">JS</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-semibold text-white">Jessica Simmons</h4>
+                                        <p class="text-gray-400">CTO, FinanceCorp</p>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-300 italic">"The migration was seamless and completed ahead of schedule. Our team experienced zero downtime, and we've seen a 40% reduction in infrastructure costs since moving to the cloud with TechSolutions."</p>
+                                <div class="flex mt-6">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="carousel-item">
+                            <div class="bg-gray-800/30 border border-gray-700 rounded-2xl p-8 md:p-10">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-blue-600 flex items-center justify-center text-white font-bold text-xl">MR</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-xl font-semibold text-white">Michael Rodriguez</h4>
+                                        <p class="text-gray-400">Operations Director, RetailFlow</p>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-300 italic">"We were nervous about migrating our e-commerce platform during peak season, but TechSolutions executed it perfectly. Our site performance improved by 60% with no disruption to our customers."</p>
+                                <div class="flex mt-6">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                    <i class="fas fa-star text-yellow-400 ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Controls -->
+                        <div class="flex justify-center mt-8 space-x-4">
+                            <button id="prev-testimonial" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button id="next-testimonial" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Description -->
+        <section class="py-12 md:py-16 px-4">
+            <div class="container mx-auto">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Comprehensive Cloud Migration</h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white mb-4">Benefits</h3>
+                            <p class="text-gray-300 mb-4">Cloud migration is more than just moving data—it's about transforming how your business operates. Our approach delivers:</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <span><strong class="text-white">Cost Efficiency:</strong> Reduce capital expenditure with pay-as-you-go cloud models</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <span><strong class="text-white">Scalability:</strong> Instantly scale resources up or down based on demand</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <span><strong class="text-white">Enhanced Security:</strong> Enterprise-grade security with continuous monitoring</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                    <span><strong class="text-white">Business Continuity:</strong> Robust disaster recovery and backup solutions</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white mb-4">Deliverables</h3>
+                            <p class="text-gray-300 mb-4">Our end-to-end cloud migration service includes:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-5">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Migration Strategy & Plan</h4>
+                                    <p class="text-gray-400">Detailed roadmap with timelines, resources, and risk mitigation strategies.</p>
+                                </div>
+                                <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-5">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Infrastructure Setup</h4>
+                                    <p class="text-gray-400">Cloud environment configuration optimized for performance and cost.</p>
+                                </div>
+                                <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-5">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Data Migration</h4>
+                                    <p class="text-gray-400">Secure transfer of all data, applications, and workloads.</p>
+                                </div>
+                                <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-5">
+                                    <h4 class="text-lg font-semibold text-white mb-2">Post-Migration Support</h4>
+                                    <p class="text-gray-400">30 days of intensive support plus ongoing optimization.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white mb-4">Outcomes</h3>
+                            <p class="text-gray-300">Our clients typically experience a 30-50% reduction in IT infrastructure costs, 99.9% uptime, and significant improvements in application performance. More importantly, they gain the agility to innovate and scale their business operations without infrastructure limitations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process / How It Works -->
+        <section class="py-12 md:py-16 px-4 bg-gray-900/50">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Migration Process</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">A structured, proven methodology that ensures successful cloud migration with minimal disruption.</p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="relative">
+                            <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 h-full">
+                                <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-5">
+                                    <span class="text-2xl font-bold text-primary">1</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Assessment & Planning</h3>
+                                <p class="text-gray-400">We analyze your current infrastructure, identify migration goals, and create a detailed migration strategy.</p>
+                            </div>
+                            <div class="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gray-700 transform translate-x-1/2"></div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="relative">
+                            <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 h-full">
+                                <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-5">
+                                    <span class="text-2xl font-bold text-primary">2</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Design & Prototype</h3>
+                                <p class="text-gray-400">We design the target cloud architecture and create a proof-of-concept to validate the approach.</p>
+                            </div>
+                            <div class="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gray-700 transform translate-x-1/2"></div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="relative">
+                            <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 h-full">
+                                <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-5">
+                                    <span class="text-2xl font-bold text-primary">3</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Migration Execution</h3>
+                                <p class="text-gray-400">We execute the migration plan with careful monitoring, ensuring data integrity and minimal downtime.</p>
+                            </div>
+                            <div class="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gray-700 transform translate-x-1/2"></div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <div class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 h-full">
+                                <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-5">
+                                    <span class="text-2xl font-bold text-primary">4</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Optimization & Support</h3>
+                                <p class="text-gray-400">We optimize the cloud environment for performance and cost, providing ongoing support and monitoring.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs -->
+        <section class="py-12 md:py-16 px-4">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-300">Answers to common questions about our cloud migration services.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center hover:bg-gray-800/50 transition-colors">
+                            <h3 class="text-lg font-semibold text-white">How long does a typical cloud migration take?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-6 pb-6 text-gray-300">
+                                <p>The timeline depends on the complexity and scale of your infrastructure. A simple migration can take 4-6 weeks, while larger, more complex migrations can take 3-6 months. During our initial assessment, we provide a detailed timeline based on your specific requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center hover:bg-gray-800/50 transition-colors">
+                            <h3 class="text-lg font-semibold text-white">What is the cost of cloud migration?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-6 pb-6 text-gray-300">
+                                <p>Costs vary based on the scope of work, size of infrastructure, and specific requirements. We offer transparent pricing with a fixed-fee model for predictable budgeting. Typically, our clients see a 30-50% reduction in overall IT costs after migration due to cloud efficiencies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center hover:bg-gray-800/50 transition-colors">
+                            <h3 class="text-lg font-semibold text-white">How do you ensure security during migration?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-6 pb-6 text-gray-300">
+                                <p>We implement end-to-end encryption for all data in transit, use secure transfer protocols, and conduct security assessments before, during, and after migration. Our team follows industry best practices and compliance standards (HIPAA, GDPR, PCI-DSS) to ensure your data remains protected throughout the process.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item bg-gray-800/30 border border-gray-700 rounded-xl overflow-hidden">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center hover:bg-gray-800/50 transition-colors">
+                            <h3 class="text-lg font-semibold text-white">Can we migrate in phases or do we need to do it all at once?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-6 pb-6 text-gray-300">
+                                <p>We recommend and typically implement a phased migration approach. This allows us to migrate less critical systems first, learn from the process, and then migrate mission-critical systems with greater confidence. This approach minimizes risk and allows for business continuity throughout the migration process.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Similar Services -->
+        <section class="py-12 md:py-16 px-4 bg-gray-900/50">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Explore Our Other Services</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">We offer a comprehensive range of tech services to help your business thrive in the digital age.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <a href="#" class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 card-hover block">
+                        <div class="w-14 h-14 rounded-lg bg-purple-500/20 flex items-center justify-center mb-5">
+                            <i class="fas fa-shield-alt text-xl text-purple-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Cybersecurity Solutions</h3>
+                        <p class="text-gray-400 mb-4">Comprehensive security assessment, monitoring, and protection for your digital assets.</p>
+                        <div class="flex items-center text-primary">
+                            <span class="font-medium">Learn More</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Service 2 -->
+                    <a href="#" class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 card-hover block">
+                        <div class="w-14 h-14 rounded-lg bg-green-500/20 flex items-center justify-center mb-5">
+                            <i class="fas fa-mobile-alt text-xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">App Development</h3>
+                        <p class="text-gray-400 mb-4">Custom mobile and web applications designed to solve your unique business challenges.</p>
+                        <div class="flex items-center text-primary">
+                            <span class="font-medium">Learn More</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Service 3 -->
+                    <a href="#" class="bg-gray-800/30 border border-gray-700 rounded-xl p-6 card-hover block">
+                        <div class="w-14 h-14 rounded-lg bg-yellow-500/20 flex items-center justify-center mb-5">
+                            <i class="fas fa-chart-bar text-xl text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Data Analytics</h3>
+                        <p class="text-gray-400 mb-4">Transform your data into actionable insights with advanced analytics and visualization tools.</p>
+                        <div class="flex items-center text-primary">
+                            <span class="font-medium">Learn More</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section id="cta" class="py-16 md:py-20 px-4">
+            <div class="container mx-auto">
+                <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-8 md:p-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Migrate to the Cloud?</h2>
+                    <p class="text-xl text-gray-300 mb-8">Schedule a free consultation with our cloud experts. We'll assess your needs and create a customized migration plan for your business.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#" class="bg-primary hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-md transition-colors text-center">
+                            Book a Call
+                        </a>
+                        <a href="tel:+18005551234" class="border border-gray-700 hover:border-primary text-gray-300 hover:text-primary font-medium py-3 px-8 rounded-md transition-colors text-center">
+                            <i class="fas fa-phone mr-2"></i> Call Us: (800) 555-1234
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-8">Or email us at <a href="mailto:cloud@techsolutions.com" class="text-primary hover:underline">cloud@techsolutions.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                            <i class="fas fa-bolt text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">TechSolutions</span>
+                    </div>
+                    <p class="text-gray-400">Transforming businesses with cutting-edge technology solutions since 2012.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Cloud Migration</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Cybersecurity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">App Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Data Analytics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Connect</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">© 2023 TechSolutions Inc. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Testimonial carousel
+        const testimonials = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(item => item.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            let newIndex = currentTestimonial - 1;
+            if (newIndex < 0) newIndex = testimonials.length - 1;
+            showTestimonial(newIndex);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            let newIndex = currentTestimonial + 1;
+            if (newIndex >= testimonials.length) newIndex = 0;
+            showTestimonial(newIndex);
+        });
+        
+        // Auto-rotate testimonials every 5 seconds
+        setInterval(() => {
+            let newIndex = currentTestimonial + 1;
+            if (newIndex >= testimonials.length) newIndex = 0;
+            showTestimonial(newIndex);
+        }, 5000);
+        
+        // Accordion functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const toggleBtn = item.querySelector('.accordion-toggle');
+            const content = item.querySelector('.accordion-content');
+            const icon = toggleBtn.querySelector('i');
+            
+            toggleBtn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                accordionItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    const otherIcon = otherItem.querySelector('.accordion-toggle i');
+                    otherIcon.classList.remove('fa-chevron-up');
+                    otherIcon.classList.add('fa-chevron-down');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
