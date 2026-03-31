@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mobile Drawer Navigation</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Flowbite CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet"/>
+
+</head>
+
+<body class="bg-[#0f0f0f] text-white">
+
+<!-- Hamburger Button -->
+<div class="p-4">
+<button class="inline-flex items-center justify-center p-2 text-white rounded-lg hover:bg-[#0B9CD7]/20 transition"
+type="button"
+data-drawer-target="drawer-navigation"
+data-drawer-show="drawer-navigation"
+aria-controls="drawer-navigation">
+
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M4 6h16M4 12h16M4 18h16"/>
+</svg>
+
+</button>
+</div>
+
+
+<!-- Drawer -->
+<div id="drawer-navigation"
+class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform
+-translate-x-full bg-[#121212] w-80 border-r border-white/10"
+tabindex="-1"
+aria-labelledby="drawer-navigation-label">
+
+<!-- Logo -->
+<div class="border-b border-white/10 pb-4 flex items-center">
+
+<a href="#" class="flex items-center space-x-3">
+
+<div class="w-7 h-7 rounded-md bg-[#0B9CD7] flex items-center justify-center font-bold">
+T
+</div>
+
+<span class="text-lg font-semibold">
+Ticket App
+</span>
+
+</a>
+
+<button type="button"
+data-drawer-hide="drawer-navigation"
+aria-controls="drawer-navigation"
+class="text-gray-400 hover:text-white hover:bg-[#0B9CD7]/20 rounded-lg w-9 h-9 absolute top-3 right-3 flex items-center justify-center">
+
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M6 18L18 6M6 6l12 12"/>
+</svg>
+
+</button>
+
+</div>
+
+
+<!-- Navigation Items -->
+<div class="py-6">
+
+<ul class="space-y-2 font-medium">
+
+<li>
+<a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-[#0B9CD7]/20 transition group">
+
+<svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M3 12l2-2m0 0l7-7 7 7"/>
+</svg>
+
+<span class="ml-3">Home</span>
+
+</a>
+</li>
+
+
+<li>
+<a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-[#0B9CD7]/20 transition">
+
+<svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M8 7V3m8 4V3M4 11h16"/>
+</svg>
+
+<span class="ml-3">Book Ticket</span>
+
+</a>
+</li>
+
+
+<li>
+<a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-[#0B9CD7]/20 transition">
+
+<svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M5 13l4 4L19 7"/>
+</svg>
+
+<span class="ml-3">My Tickets</span>
+
+</a>
+</li>
+
+
+<li>
+<a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-[#0B9CD7]/20 transition">
+
+<svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M5 3h14a2 2 0 012 2v14"/>
+</svg>
+
+<span class="ml-3">Payments</span>
+
+</a>
+</li>
+
+
+<li>
+<a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-[#0B9CD7]/20 transition">
+
+<svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M5.121 17.804A7 7 0 1118.9 6.122"/>
+</svg>
+
+<span class="ml-3">Account</span>
+
+</a>
+</li>
+
+
+<li>
+<a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-[#0B9CD7]/20 transition">
+
+<svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M17 16l4-4m0 0l-4-4m4 4H7"/>
+</svg>
+
+<span class="ml-3">Logout</span>
+
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- Flowbite Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+</body>
+</html>

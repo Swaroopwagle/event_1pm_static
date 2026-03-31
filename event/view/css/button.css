@@ -1,0 +1,184 @@
+/* =========================================================
+   NEO TICKET - CTA BUTTONS
+   Blue Cyber / Holographic Aesthetic
+   ========================================================= */
+
+:root {
+  /* Base Colors - Blue Theme */
+  --color-background: #0a0a0f;
+  --color-surface: #1a1a24;
+  
+  --color-primary: #00b4ff;      /* Electric Blue - Main brand & primary CTAs */
+  --color-secondary: #00e5ff;    /* Deep Cyan - Supporting actions & glow */
+  --color-tertiary: #5e5cee;     /* Neon Indigo - Urgency & accents */
+
+  --color-text-primary: #f0f0ff;
+  --color-text-secondary: #e0e0ff;
+  --color-text-muted: #a0a0cc;
+
+  /* Button specific */
+  --button-radius: 12px;
+  --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ====================== 
+   BASE BUTTON 
+   ====================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 14px 28px;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  transition: var(--button-transition);
+  text-decoration: none;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ====================== 
+   PRIMARY BUTTON (Main "Book Tickets" / "Get Tickets")
+   ====================== */
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 180, 255, 0.45);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 180, 255, 0.65);
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+}
+
+/* ====================== 
+   SECONDARY BUTTON 
+   ====================== */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary);
+  color: white;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.55);
+}
+
+/* ====================== 
+   TERTIARY / URGENCY BUTTON (Limited Tickets, Buy Now)
+   ====================== */
+.btn-tertiary {
+  background: var(--color-tertiary);
+  color: white;
+  box-shadow: 0 4px 20px rgba(94, 92, 238, 0.5);
+}
+
+.btn-tertiary:hover {
+  background: #7b79ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(94, 92, 238, 0.7);
+}
+
+/* ====================== 
+   GLOW BUTTON (Premium Holographic Concert Feel)
+   ====================== */
+.btn-glow {
+  background: var(--color-primary);
+  color: white;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.6);
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(90deg, var(--color-tertiary), var(--color-primary), var(--color-secondary));
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.65;
+  transition: var(--button-transition);
+  border-radius: var(--button-radius);
+}
+
+.btn-glow:hover::before {
+  opacity: 0.95;
+  filter: blur(14px);
+}
+
+/* ====================== 
+   OUTLINE BUTTON 
+   ====================== */
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
+}
+
+/* ====================== 
+   SUCCESS / TICKET EMAILED BUTTON 
+   ====================== */
+.btn-success {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #16a34a;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+}
+
+/* ====================== 
+   LARGE & SMALL VARIANTS 
+   ====================== */
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 1.15rem;
+  border-radius: 16px;
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+}
+
+/* ====================== 
+   FULL WIDTH BUTTON (Mobile Checkout)
+   ====================== */
+.btn-full {
+  width: 100%;
+  padding: 16px;
+}
+
+/* ====================== 
+   DISABLED STATE 
+   ====================== */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none;
+}

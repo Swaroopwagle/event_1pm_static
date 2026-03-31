@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" /> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <style>
+        .container {
+            width: 86%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="p-[120px]">
+
+        <button class="group relative px-12 py-5 font-bold text-lg text-white
+                   bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl
+                   overflow-hidden shadow-xl transition-all duration-400 hover:shadow-2xl hover:-translate-y-1">
+
+            <!-- blob shape -->
+            <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/40 to-cyan-500/40 
+                     rounded-[40%] scale-0 group-hover:scale-[2.5] blur-2xl 
+                     transition-all duration-1000 ease-out origin-center"></span>
+            </span>
+
+            <span class="relative z-10 flex items-center justify-center gap-3">
+                Schedule a Call
+                <span class="transition-transform duration-300 group-hover:rotate-90 group-hover:scale-125">+</span>
+            </span>
+        </button>
+
+
+        <button class="group relative px-9 py-4.5 font-semibold text-lg text-white
+               bg-neutral-900 border border-neutral-700 rounded-xl
+               overflow-hidden transition-all duration-300 hover:border-blue-500/70 hover:shadow-lg">
+
+            <!-- background fill -->
+            <span class="absolute inset-0 bg-blue-600/10 scale-x-0 origin-left 
+               group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+
+            <span class="relative flex items-center gap-3">
+                <span class="inline-block transition-all duration-500 group-hover:translate-x-1">
+                    Book
+                </span>
+                <span class="inline-block transition-all duration-500 delay-75 group-hover:translate-x-2">
+                    a Call
+                </span>
+                <svg class="w-6 h-6 transition-all duration-400 group-hover:rotate-180" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 5l7 7-7 7" />
+                </svg>
+            </span>
+        </button>
+
+
+
+        <button class="group relative px-10 py-5 font-medium text-xl text-white
+               bg-gradient-to-r from-rose-500 via-purple-600 to-indigo-600
+               rounded-full shadow-2xl transition-all duration-300
+               hover:shadow-[0_25px_50px_-12px_rgba(139,92,246,0.5)]
+               active:scale-95 overflow-hidden">
+
+            <!-- ripple effect on click -->
+            <span class="absolute inset-0 pointer-events-none">
+                <span class="absolute inset-0 rounded-full bg-white/20 scale-0 opacity-0 
+                 group-active:scale-[4] group-active:opacity-0 
+                 group-active:transition-all group-active:duration-700 group-active:ease-out"></span>
+            </span>
+
+            <span
+                class="relative z-10 flex items-center gap-3 transition-transform duration-300 group-hover:-translate-x-1">
+                Let's talk →
+                <svg class="w-6 h-6 transition-transform duration-400 group-hover:translate-x-3" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </span>
+        </button>
+
+        <button class="group relative px-8 py-4 text-lg font-semibold text-indigo-100
+               bg-gradient-to-r from-indigo-800 to-purple-900 rounded-lg
+               transition-all duration-300 hover:text-white hover:shadow-xl">
+
+            <!-- wavy underline -->
+            <span class="absolute bottom-3 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent
+               scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-600 ease-out"></span>
+
+            <!-- color text shift -->
+            <span class="relative flex items-center justify-center gap-2.5">
+                <span class="transition-colors duration-400 group-hover:text-cyan-300">Book</span>
+                <span class="transition-colors duration-500 delay-100 group-hover:text-cyan-200">a</span>
+                <span class="transition-colors duration-600 delay-200 group-hover:text-cyan-100">Call</span>
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+            </span>
+        </button>
+    </section>
+
+
+    <!-- nproject section cards  -->
+
+    <section>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- CARD 1 -->
+            <div class="bg-[#0E0E0E] rounded-[32px] p-6 sm:p-8 shadow-xl">
+
+                <div class="rounded-[24px] overflow-hidden">
+                    <img src="/mnt/data/projects.png" class="w-full h-60 object-cover" alt="">
+                </div>
+
+                <div class="mt-6">
+
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-white text-xl sm:text-2xl font-semibold">
+                            MachineLearningProject
+                        </h2>
+
+                        <button class="group w-12 h-12 sm:w-14 sm:h-14 bg-blue-500 rounded-full 
+                     flex items-center justify-center 
+                     transition-all duration-300 
+                     hover:scale-110 hover:bg-blue-400 active:scale-95">
+
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 
+                          group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+
+                        </button>
+                    </div>
+
+                    <p class="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mt-6 text-gray-400 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CARD 2 (Duplicate) -->
+            <div class="bg-[#0E0E0E] rounded-[32px] p-6 sm:p-8 shadow-xl">
+                <div class="rounded-[24px] overflow-hidden">
+                    <img src="/mnt/data/projects.png" class="w-full h-60 object-cover" alt="">
+                </div>
+
+                <div class="mt-6">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-white text-xl sm:text-2xl font-semibold">
+                            AIAnalyticsPlatform
+                        </h2>
+
+                        <button class="group w-12 h-12 sm:w-14 sm:h-14 bg-blue-500 rounded-full 
+                     flex items-center justify-center 
+                     transition-all duration-300 
+                     hover:scale-110 hover:bg-blue-400 active:scale-95">
+
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 
+                          group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mt-6 text-gray-400 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <p>Lorem Ipsum is simply dummy text</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Simple Interaction Script -->
+        <script>
+            function handleClick() {
+                alert("Opening Machine Learning Project 🚀");
+            }
+        </script>
+    </section>
+
+
+
+
+    <section>
+
+        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+            class="inline-flex items-center justify-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+            type="button">
+            Dropdown button
+            <svg class="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m19 9-7 7-7-7" />
+            </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div id="dropdown"
+            class="z-10 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44">
+            <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownDefaultButton">
+                <li>
+                    <a href="#"
+                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Settings</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Earnings</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Sign
+                        out</a>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+</body>
+
+</html>

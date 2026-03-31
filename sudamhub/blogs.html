@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Section Redesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DD4A29',
+                        secondary: '#3B82F6',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .blog-card:hover .blog-title {
+            color: #DD4A29;
+        }
+        .read-more:hover {
+            transform: translateX(5px);
+        }
+        .swiper {
+            width: 100%;
+            padding-bottom: 30px;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #DD4A29 !important;
+        }
+        @media (min-width: 768px) {
+            .swiper-container {
+                display: none;
+            }
+            .grid-container {
+                display: grid;
+            }
+        }
+        @media (max-width: 767px) {
+            .swiper-container {
+                display: block;
+            }
+            .grid-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Blog Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-dark sm:text-4xl">Our Latest Blogs</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Explore ideas, tips, and trends in coding, tech, and innovation. From tutorials to career advice, our blogs are here to inform, inspire, and empower your journey.
+            </p>
+        </div>
+
+        <!-- Grid Layout for Medium and Large Screens -->
+        <div class="grid-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Blog Card 1 -->
+    <div class="bg-[#1A1A1A] hidden md:block rounded-xl shadow-md overflow-hidden border border-gray-800 hover:shadow-lg transition-all duration-300 blog-card">
+        <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Computer Institute" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+            <div class="flex items-center mb-2 gap-2">
+                <span class="text-xs font-semibold px-2 py-1 bg-white/10 text-white rounded-full">INSTITUTE</span>
+                <span class="text-xs text-gray-400">📍 18-Jul-2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 blog-title transition-colors duration-300">Best Computer Institute in Nepal – Code IT</h3>
+            <p class="text-gray-400 mb-4 line-clamp-2">
+                Introduction: Why Choosing the Right Institute Matters. We live in a digital world where tech skills are no longer options...
+            </p>
+            <a href="#" class="group relative inline-flex items-center px-6 py-3 font-medium text-white rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 overflow-hidden transition-all duration-300 hover:scale-[1.03] shadow-lg hover:shadow-2xl">
+                <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+                <span class="relative flex items-center gap-2">
+                    Read More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Blog Card 2 -->
+    <div class="bg-[#1A1A1A] hidden md:block rounded-xl shadow-md overflow-hidden border border-gray-800 hover:shadow-lg transition-all duration-300 blog-card">
+        <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Web Design Course" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+            <div class="flex items-center mb-2 gap-2">
+                <span class="text-xs font-semibold px-2 py-1 bg-white/10 text-white rounded-full">COURSE</span>
+                <span class="text-xs text-gray-400">📍 11-Jul-2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 blog-title transition-colors duration-300">Unbeatable Web Design Course from Industry Pro</h3>
+            <p class="text-gray-400 mb-4 line-clamp-2">
+                What's This Course All About? If you've ever thought, "I want to build websites, but where do I even start?" — you're...
+            </p>
+            <a href="#" class="group relative inline-flex items-center px-6 py-3 font-medium text-white rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 overflow-hidden transition-all duration-300 hover:scale-[1.03] shadow-lg hover:shadow-2xl">
+                <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+                <span class="relative flex items-center gap-2">
+                    Read More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Blog Card 3 -->
+    <div class="bg-[#1A1A1A] hidden lg:block rounded-xl shadow-md overflow-hidden border border-gray-800 hover:shadow-lg transition-all duration-300 blog-card">
+        <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="IT Bootcamp" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+            <div class="flex items-center mb-2 gap-2">
+                <span class="text-xs font-semibold px-2 py-1 bg-white/10 text-white rounded-full">TRENDS</span>
+                <span class="text-xs text-gray-400">📍 07-Jul-2025</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 blog-title transition-colors duration-300">The Growth of IT Bootcamp After 2017 in Koshi Province</h3>
+            <p class="text-gray-400 mb-4 line-clamp-2">
+                Introduction to IT Bootcamps in Nepal. In recent years, IT bootcamps have rapidly transformed the educational landscape...
+            </p>
+            <a href="#" class="group relative inline-flex items-center px-6 py-3 font-medium text-white rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 overflow-hidden transition-all duration-300 hover:scale-[1.03] shadow-lg hover:shadow-2xl">
+                <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+                <span class="relative flex items-center gap-2">
+                    Read More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+        <!-- Swiper for Mobile Screens -->
+        <div class="swiper-container mt-8">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 mx-4 blog-card">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                                     alt="Computer Institute" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded">INSTITUTE</span>
+                                    <span class="text-xs text-gray-500 ml-2">📍 18-Jul-2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-dark mb-3 blog-title transition-colors duration-300">Best Computer Institute in Nepal – Code IT</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">
+                                    Introduction: Why Choosing the Right Institute Matters. We live in a digital world where tech skills are no longer options...
+                                </p>
+                                <a href="#" class="flex items-center text-primary font-medium read-more transition-transform duration-300">
+                                    Read More
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 mx-4 blog-card">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                                     alt="Web Design Course" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded">COURSE</span>
+                                    <span class="text-xs text-gray-500 ml-2">📍 11-Jul-2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-dark mb-3 blog-title transition-colors duration-300">Unbeatable Web Design Course from Industry Pro</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">
+                                    What's This Course All About? If you've ever thought, "I want to build websites, but where do I even start?" — you're...
+                                </p>
+                                <a href="#" class="flex items-center text-primary font-medium read-more transition-transform duration-300">
+                                    Read More
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 mx-4 blog-card">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                                     alt="IT Bootcamp" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded">TRENDS</span>
+                                    <span class="text-xs text-gray-500 ml-2">📍 07-Jul-2025</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-dark mb-3 blog-title transition-colors duration-300">IT Bootcamp After 2017 in Koshi Province</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">
+                                    Introduction to IT Bootcamps in Nepal. In recent years, IT bootcamps have rapidly transformed the educational landscape...
+                                </p>
+                                <a href="#" class="flex items-center text-primary font-medium read-more transition-transform duration-300">
+                                    Read More
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <!-- View All Button -->
+        <div class="text-center mt-12">
+            <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-opacity-90 transition-colors duration-300 shadow-sm">
+                View All Blogs
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" /> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <style>
+        .container {
+            width: 86%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="bg-black pt-30 pb-25 ">
+
+        <div class="  relative max-w-7xl mx-auto rounded-3xl overflow-hidden
+           bg-[#0B0B0B] text-white flex flex-col lg:flex-row">
+            <!-- Background grid pattern -->
+            <div class="absolute inset-0 opacity-20" style="
+        background-image:
+          linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 32px 32px; ">
+            </div>
+
+            <!-- Subtle tech lines / boxes -->
+            <div class="absolute inset-0 opacity-30">
+                <div class="absolute top-16 left-24 w-40 h-24 border border-white/20 rounded-xl"></div>
+                <div class="absolute top-32 left-48 w-48 h-32 border border-white/20 rounded-xl"></div>
+                <div class="absolute bottom-20 left-64 w-44 h-28 border border-white/20 rounded-xl"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 px-10 py-20 max-w-3xl lg:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    We’re Engineers of Intelligent Change
+                </h1>
+
+                <p class="mt-6 text-gray-300 text-base md:text-lg leading-relaxed">
+                    Pioneering the intersection of AI, blockchain, and quantitative finance
+                    to deliver innovative solutions that drive business transformation
+                </p>
+
+                <a href="#" class="inline-block mt-8 rounded-lg px-6 py-3
+       text-sm font-medium text-white transition" style="background-color: #0B9CD7;"
+                    onmouseover="this.style.backgroundColor='#0AA8E0';"
+                    onmouseout="this.style.backgroundColor='#0B9CD7';">
+                    Get In Touch
+                </a>
+            </div>
+
+            <!-- Right side - Image area -->
+            <div class="relative z-10 lg:w-1/2 flex items-center justify-center p-10">
+                <img src="{{ asset('images/service.png') }}" alt="AI and Technology" class="w-full h-full object-cover">
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container flex  flex-col gap">
+            <div class="container flex flex-col ">
+                <h2>Our Services</h2>
+                <p>Comprehensive AI, blockchain, and analytics solutions powered by deep expertise in machine learning
+                    and data engineering</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- first card  -->
+                <div class=" flex flex-col gap-5 rounded-[18px] items-center  sm:px-8 py-10 px-6 bg-[#1A1A1A]">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXt6P6aIA22SzoADr2lh3yvPhHxKdMZT5sBg&s"
+                        alt="">
+                    <div class="flex flex-col items-center   gap-7 ">
+                        <div class=" flex flex-col gap-3 text-center text-white">
+                            <h3 class="text-base sm:text-lg lg:text-xl font-medium lg:font-semibold leading-tight">
+                                Machine Learning Solutions</h3>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Custom ML models designed and optimized for your specific business challenges,
+                                leveraging cutting-edge deep learning techniques.
+                            </p>
+                        </div>
+
+
+                        <!-- 2 Column Grid Inside Card -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed  text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                        </div>
+                        <button class="group relative px-12 py-5 font-bold text-lg text-white
+                 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl
+                   overflow-hidden shadow-xl transition-all duration-400 hover:shadow-2xl hover:-translate-y-1">
+
+                            <!-- blob shape -->
+                            <span
+                                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/40 to-cyan-500/40 
+                 rounded-[40%] scale-0 group-hover:scale-[2.5] blur-2xl 
+                 transition-all duration-1000 ease-out origin-center"></span>
+                            </span>
+
+                            <span class="relative z-10 flex items-center justify-center gap-3">
+                                Schedule a Call
+                                <span
+                                    class="transition-transform duration-300 group-hover:rotate-90 group-hover:scale-125">+</span>
+                            </span>
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+                <!-- second card -->
+                <div class=" flex flex-col gap-5 rounded-[18px] items-center  sm:px-8 py-10 px-6 bg-[#1A1A1A]">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXt6P6aIA22SzoADr2lh3yvPhHxKdMZT5sBg&s"
+                        alt="">
+                    <div class="flex flex-col items-center   gap-7 ">
+                        <div class=" flex flex-col gap-3 text-center text-white">
+                            <h3 class="text-base sm:text-lg lg:text-xl font-medium lg:font-semibold leading-tight">
+                                Machine Learning Solutions</h3>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Custom ML models designed and optimized for your specific business challenges,
+                                leveraging cutting-edge deep learning techniques.
+                            </p>
+                        </div>
+
+
+                        <!-- 2 Column Grid Inside Card -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed  text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                        </div>
+
+                        <button class="relative px-10 py-4.5 rounded-2xl text-lg font-semibold
+        bg-white/10 backdrop-blur-xl border border-white/20
+        text-white shadow-lg transition-all duration-300
+        hover:bg-white/15 hover:border-white/30 hover:shadow-xl
+        active:scale-95 group overflow-hidden">
+
+                            <!-- background slide -->
+                            <span class="absolute inset-0 bg-gradient-to-r from-[#0B9CD7]/20 to-[#0B9CD7]/40
+          translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+
+                            <span class="relative flex items-center justify-center gap-3">
+                                Book a Call
+                                <i
+                                    class="ri-arrow-right-line text-white transition-transform duration-300 group-hover:rotate-45 text-xl"></i>
+                            </span>
+                        </button>
+
+
+                    </div>
+
+                </div>
+                <!-- third card -->
+
+                <div class=" flex flex-col gap-5 rounded-[18px] items-center  sm:px-8 py-10 px-6 bg-[#1A1A1A]">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXt6P6aIA22SzoADr2lh3yvPhHxKdMZT5sBg&s"
+                        alt="">
+                    <div class="flex flex-col items-center   gap-7 ">
+                        <div class=" flex flex-col gap-3 text-center text-white">
+                            <h3 class="text-base sm:text-lg lg:text-xl font-medium lg:font-semibold leading-tight">
+                                Machine Learning Solutions</h3>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Custom ML models designed and optimized for your specific business challenges,
+                                leveraging cutting-edge deep learning techniques.
+                            </p>
+                        </div>
+
+
+                        <!-- 2 Column Grid Inside Card -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed  text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                        </div>
+
+                        <button class="relative px-9 py-4 font-medium text-lg text-white 
+         bg-blue-700 rounded-full overflow-hidden group
+         hover:bg-blue-800 transition-colors duration-300">
+                            <!-- animated border -->
+                            <span class="absolute inset-0 rounded-full border-2 border-blue-400/40 
+               scale-95 group-hover:scale-105 transition-transform duration-500"></span>
+
+                            <!-- underline animation -->
+                            <span class="absolute bottom-3 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-white 
+               group-hover:w-3/5 transition-all duration-400 rounded-full"></span>
+
+                            <span class="relative flex items-center gap-2.5">
+                                Book a Call
+                                <svg class="w-5 h-5 group-hover:animate-bounce-horizontal" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </span>
+                        </button>
+
+                        <style>
+                            @keyframes bounce-horizontal {
+
+                                0%,
+                                100% {
+                                    transform: translateX(0);
+                                }
+
+                                50% {
+                                    transform: translateX(6px);
+                                }
+                            }
+
+                            .animate-bounce-horizontal {
+                                animation: bounce-horizontal 1.2s infinite;
+                            }
+                        </style>
+
+
+                    </div>
+
+                </div>
+                <!-- last card -->
+                <div class=" flex flex-col gap-5 rounded-[18px] items-center  sm:px-8 py-10 px-6 bg-[#1A1A1A]">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXt6P6aIA22SzoADr2lh3yvPhHxKdMZT5sBg&s"
+                        alt="">
+                    <div class="flex flex-col items-center   gap-7 ">
+                        <div class=" flex flex-col gap-3 text-center text-white">
+                            <h3 class="text-base sm:text-lg lg:text-xl font-medium lg:font-semibold leading-tight">
+                                Machine Learning Solutions</h3>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Custom ML models designed and optimized for your specific business challenges,
+                                leveraging cutting-edge deep learning techniques.
+                            </p>
+                        </div>
+
+
+                        <!-- 2 Column Grid Inside Card -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-[6px] h-[6px] mt-2 rounded-full bg-white"></div>
+                                <h4 class="leading-relaxed  text-white text-sm">
+                                    Deep learning model development
+                                </h4>
+                            </div>
+
+                        </div>
+
+                        <button class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 
+         text-white font-semibold rounded-full text-lg shadow-lg 
+         overflow-hidden transition-all duration-300 hover:shadow-2xl 
+         hover:scale-[1.04] active:scale-95">
+                            <!-- shine effect -->
+                            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent 
+               -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+
+                            <span class="relative flex items-center justify-center gap-3">
+                                Book a Call
+                                <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <button data-drawer-target="mobile-nav" data-drawer-show="mobile-nav" aria-controls="mobile-nav"
+        class="p-2 rounded-lg text-white hover:bg-white/10 transition">
+
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+    </button>
+
+    <div id="mobile-nav" class="fixed top-0 left-0 z-40 h-screen w-72
+            -translate-x-full transition-transform
+            bg-[#0f0f0f] border-r border-white/10
+            p-5">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+
+            <h2 class="text-white font-semibold text-lg">
+                My App
+            </h2>
+
+            <button data-drawer-hide="mobile-nav" class="text-white hover:bg-white/10 rounded-lg p-2">
+
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+
+            </button>
+
+        </div>
+
+        <!-- Navigation Items -->
+
+        <ul class="space-y-3">
+
+            <li>
+                <a href="#" class="flex items-center gap-3
+px-4 py-3 rounded-lg
+text-gray-300
+hover:text-white
+hover:bg-[#0B9CD7]/20
+transition">
+
+                    <svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3" />
+                    </svg>
+
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="flex items-center gap-3
+px-4 py-3 rounded-lg
+text-gray-300
+hover:text-white
+hover:bg-[#0B9CD7]/20
+transition">
+
+                    <svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                    </svg>
+
+                    Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="flex items-center gap-3
+px-4 py-3 rounded-lg
+text-gray-300
+hover:text-white
+hover:bg-[#0B9CD7]/20
+transition">
+
+                    <svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+
+                    My Tickets
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="flex items-center gap-3
+px-4 py-3 rounded-lg
+text-gray-300
+hover:text-white
+hover:bg-[#0B9CD7]/20
+transition">
+
+                    <svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 9V7a4 4 0 10-8 0v2" />
+                    </svg>
+
+                    Account
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="flex items-center gap-3
+px-4 py-3 rounded-lg
+text-gray-300
+hover:text-white
+hover:bg-[#0B9CD7]/20
+transition">
+
+                    <svg class="w-5 h-5 text-[#0B9CD7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2" />
+                    </svg>
+
+                    Payments
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
