@@ -3,23 +3,7 @@
    Blue Cyber / Holographic Aesthetic
    ========================================================= */
 
-:root {
-  /* Base Colors - Blue Theme */
-  --color-background: #0a0a0f;
-  --color-surface: #1a1a24;
-  
-  --color-primary: #00b4ff;      /* Electric Blue - Main brand & primary CTAs */
-  --color-secondary: #00e5ff;    /* Deep Cyan - Supporting actions & glow */
-  --color-tertiary: #5e5cee;     /* Neon Indigo - Urgency & accents */
 
-  --color-text-primary: #f0f0ff;
-  --color-text-secondary: #e0e0ff;
-  --color-text-muted: #a0a0cc;
-
-  /* Button specific */
-  --button-radius: 12px;
-  --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* ====================== 
    BASE BUTTON 

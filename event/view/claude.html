@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Banner — Eventique</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* ── Theme Variables (mirroring your theme.css) ── */
+        :root {
+            --color-background: #f8f7fc;
+            --color-surface: #ffffff;
+            --color-primary: #7b2cff;
+            --color-secondary: #00b8b8;
+            --color-tertiary: #e22b9a;
+            --color-text-primary: #1f1f2e;
+            --color-text-secondary: #2f2f4a;
+            --color-text-muted: #6b6b8c;
+            --neutral-bg-soft: #f3f4f6;
+            --neutral-border: #e5e7eb;
+        }
+
+        .dark {
+            --color-background: #0a0a0f;
+            --color-surface: #1a1a24;
+            --color-primary: #00b4ff;
+            --color-secondary: #00e5ff;
+            --color-tertiary: #5e5cee;
+            --color-text-primary: #f0f0ff;
+            --color-text-secondary: #e0e0ff;
+            --color-text-muted: #a0a0cc;
+            --neutral-bg-soft: #2a2a35;
+            --neutral-border: #3a3a45;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        main {
+            transition: margin-left 0.3s ease;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            main { margin-left: 16rem; width: calc(100% - 16rem); }
+        }
+        @media (max-width: 767px) {
+            main { margin-left: 0; width: 100%; }
+        }
+
+        /* ── Hero-specific styles ── */
+
+        /* Animated gradient mesh background */
+        .hero-bg {
+            background-color: var(--color-background);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 55% 50% at 15% 50%, color-mix(in srgb, var(--color-primary) 14%, transparent) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 45% at 85% 30%, color-mix(in srgb, var(--color-secondary) 12%, transparent) 0%, transparent 65%),
+                radial-gradient(ellipse 35% 40% at 60% 80%, color-mix(in srgb, var(--color-tertiary) 10%, transparent) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Subtle dot grid pattern */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 20%, transparent) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.18;
+            pointer-events: none;
+            animation: orbFloat 8s ease-in-out infinite;
+        }
+        .orb-1 {
+            width: 340px; height: 340px;
+            background: var(--color-primary);
+            top: -80px; left: -60px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 260px; height: 260px;
+            background: var(--color-secondary);
+            bottom: -60px; right: 5%;
+            animation-delay: -3s;
+        }
+        .orb-3 {
+            width: 180px; height: 180px;
+            background: var(--color-tertiary);
+            top: 40%; right: 25%;
+            animation-delay: -5s;
+        }
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50%       { transform: translateY(-24px) scale(1.04); }
+        }
+
+        /* Content z-index above bg effects */
+        .hero-content { position: relative; z-index: 1; }
+
+        /* Pill badge */
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+            border: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+            color: var(--color-primary);
+        }
+
+        .live-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--color-tertiary);
+            position: relative;
+        }
+        .live-dot::after {
+            content: '';
+            position: absolute; inset: -3px;
+            border-radius: 50%;
+            background: var(--color-tertiary);
+            opacity: 0.35;
+            animation: pulse-ring 1.8s ease-out infinite;
+        }
+        @keyframes pulse-ring {
+            0%   { transform: scale(1); opacity: 0.35; }
+            100% { transform: scale(2.6); opacity: 0; }
+        }
+
+        /* Headline gradient text */
+        .headline-gradient {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 55%, var(--color-tertiary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Primary CTA button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+            box-shadow: 0 4px 20px color-mix(in srgb, var(--color-primary) 40%, transparent);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 8px 28px color-mix(in srgb, var(--color-primary) 50%, transparent);
+        }
+
+        /* Ghost CTA button */
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            background: transparent;
+            color: var(--color-text-secondary);
+            border: 1.5px solid var(--neutral-border);
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s, color 0.2s;
+        }
+        .btn-ghost:hover {
+            transform: translateY(-2px);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+        }
+
+        /* Search bar */
+        .search-bar {
+            background: var(--color-surface);
+            border: 1.5px solid var(--neutral-border);
+            border-radius: 12px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-bar:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+        }
+        .search-bar input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--color-text-primary);
+            font-size: 14px;
+            width: 100%;
+        }
+        .search-bar input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        /* Stat cards */
+        .stat-card {
+            background: var(--color-surface);
+            border: 1px solid var(--neutral-border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+            box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 10%, transparent);
+        }
+
+        /* Category chips */
+        .cat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 500;
+            background: var(--color-surface);
+            border: 1.5px solid var(--neutral-border);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .cat-chip:hover,
+        .cat-chip.active {
+            background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        /* Upcoming event card */
+        .event-card {
+            background: var(--color-surface);
+            border: 1px solid var(--neutral-border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s, border-color 0.25s;
+            cursor: pointer;
+        }
+        .event-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+            box-shadow: 0 16px 40px color-mix(in srgb, var(--color-primary) 12%, transparent);
+        }
+
+        /* Event card thumb */
+        .event-thumb {
+            height: 150px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Tag */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* Price badge */
+        .price-badge {
+            background: var(--color-primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Ticker */
+        .ticker-outer {
+            overflow: hidden;
+            border-top: 1px solid var(--neutral-border);
+            border-bottom: 1px solid var(--neutral-border);
+            background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+        }
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* Entrance animations */
+        .fade-up { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+        .fade-up-2 { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.12s both; }
+        .fade-up-3 { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.24s both; }
+        .fade-up-4 { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.36s both; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neutral-border), transparent);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════
+     SIDEBAR (your existing structure)
+════════════════════════════════════════ -->
+<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+    aria-controls="default-sidebar" type="button"
+    class="inline-flex sm:hidden ms-3 mt-3 p-2 rounded-lg text-sm"
+    style="color:var(--color-text-secondary);background:var(--color-surface);border:1px solid var(--neutral-border);">
+    <span class="sr-only">Open sidebar</span>
+    <i class="ri-menu-line text-xl"></i>
+</button>
+
+<aside id="default-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto shadow-[4px_0_10px_-2px_rgba(0,0,0,0.08)]"
+        style="background-color:var(--color-surface);border-right:1px solid var(--neutral-border);">
+        <!-- Logo -->
+        <div class="flex items-center justify-between mb-8 mt-2 px-2">
+            <div class="flex items-center gap-3">
+                <i class="ri-ticket-line text-2xl" style="color:var(--color-primary);"></i>
+                <span class="text-xl font-bold" style="color:var(--color-text-primary);">Eventique</span>
+            </div>
+            <button class="sm:hidden text-xl"
+                onclick="document.getElementById('default-sidebar').classList.add('-translate-x-full')">
+                <i class="ri-close-line" style="color:var(--color-text-muted);"></i>
+            </button>
+        </div>
+
+        <ul class="space-y-1 font-medium">
+            <li><a href="#" class="flex items-center px-2 py-2 rounded-lg gap-3 transition-all duration-200"
+                style="background:color-mix(in srgb, var(--color-primary) 10%, transparent);color:var(--color-primary);">
+                <i class="ri-home-4-line text-xl"></i><span class="font-semibold">Home</span>
+            </a></li>
+            <li><a href="#" class="flex items-center px-2 py-2 rounded-lg gap-3 transition-all duration-200"
+                style="color:var(--color-text-secondary);">
+                <i class="ri-calendar-event-line text-xl"></i><span>Events</span>
+            </a></li>
+            <li><a href="#" class="flex items-center px-2 py-2 rounded-lg gap-3 transition-all duration-200"
+                style="color:var(--color-text-secondary);">
+                <i class="ri-ticket-2-line text-xl"></i>
+                <span class="flex-1">My Tickets</span>
+                <span class="text-xs font-medium px-1.5 py-0.5 rounded-sm"
+                    style="background:var(--neutral-bg-soft);color:var(--color-primary);border:1px solid var(--neutral-border);">3</span>
+            </a></li>
+            <li><a href="#" class="flex items-center px-2 py-2 rounded-lg gap-3 transition-all duration-200"
+                style="color:var(--color-text-secondary);">
+                <i class="ri-map-pin-line text-xl"></i><span>Venues</span>
+            </a></li>
+            <li><a href="#" class="flex items-center px-2 py-2 rounded-lg gap-3 transition-all duration-200"
+                style="color:var(--color-text-secondary);">
+                <i class="ri-group-line text-xl"></i><span>Organizers</span>
+            </a></li>
+        </ul>
+
+        <div class="absolute bottom-4 left-0 right-0 px-3">
+            <button id="sidebar-theme-toggle"
+                class="flex items-center justify-between w-full px-3 py-2 rounded-lg transition-all duration-200"
+                style="background:var(--neutral-bg-soft);color:var(--color-text-secondary);">
+                <span class="flex items-center gap-2">
+                    <i class="ri-sun-line sun-icon text-lg"></i>
+                    <i class="ri-moon-line moon-icon text-lg" style="display:none;"></i>
+                    <span>Switch Theme</span>
+                </span>
+                <i class="ri-arrow-left-right-line"></i>
+            </button>
+        </div>
+    </div>
+</aside>
+
+<!-- ════════════════════════════════════════
+     MAIN — HERO BANNER ONLY
+════════════════════════════════════════ -->
+<main>
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero-bg rounded-2xl mb-6 px-6 py-12 md:px-12 md:py-16" style="min-height: 460px;">
+        <!-- Decorative orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <div class="hero-content">
+
+            <!-- Live badge -->
+            <div class="fade-up mb-5">
+                <span class="live-badge">
+                    <span class="live-dot"></span>
+                    Live events near you
+                </span>
+            </div>
+
+            <!-- Headline -->
+            <div class="fade-up-2 mb-4 max-w-2xl">
+                <h1 class="font-bold leading-tight" style="font-size: clamp(32px, 5vw, 58px); color: var(--color-text-primary);">
+                    Your Next<br>
+                    <span class="headline-gradient">Unforgettable</span><br>
+                    Experience Awaits
+                </h1>
+            </div>
+
+            <!-- Sub copy -->
+            <div class="fade-up-3 mb-8 max-w-xl">
+                <p style="color:var(--color-text-muted); font-size:16px; line-height:1.7;">
+                    Discover thousands of events — concerts, tech summits, food fests, and more.
+                    Grab your tickets before they're gone.
+                </p>
+            </div>
+
+            <!-- Search bar + CTAs -->
+            <div class="fade-up-4 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center mb-10 max-w-2xl">
+                <!-- Search -->
+                <div class="search-bar flex items-center gap-3 px-4 py-3 flex-1">
+                    <i class="ri-search-line text-lg flex-shrink-0" style="color:var(--color-text-muted);"></i>
+                    <input id="hero-search" type="text" placeholder="Search events, artists, venues…" />
+                    <span class="hidden sm:inline text-xs px-2 py-1 rounded-md flex-shrink-0"
+                        style="background:var(--neutral-bg-soft);color:var(--color-text-muted);border:1px solid var(--neutral-border);">⌘K</span>
+                </div>
+                <!-- Primary CTA -->
+                <button class="btn-primary" onclick="">
+                    <i class="ri-search-line"></i>
+                    Search
+                </button>
+            </div>
+
+            <!-- CTAs row -->
+            <div class="fade-up-4 flex flex-wrap gap-3 mb-10">
+                <button class="btn-primary" onclick="">
+                    <i class="ri-ticket-line"></i>
+                    Browse Events
+                </button>
+                <button class="btn-ghost" onclick="">
+                    <i class="ri-add-circle-line"></i>
+                    List Your Event
+                </button>
+            </div>
+
+            <!-- Divider -->
+            <hr class="divider mb-8" />
+
+            <!-- Stats row -->
+            <div class="fade-up-4 flex flex-wrap gap-4">
+                <div class="stat-card flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style="background:color-mix(in srgb, var(--color-primary) 12%, transparent);">
+                        <i class="ri-calendar-event-line text-lg" style="color:var(--color-primary);"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-lg leading-none" style="color:var(--color-text-primary);">12K+</div>
+                        <div class="text-xs mt-0.5" style="color:var(--color-text-muted);">Events listed</div>
+                    </div>
+                </div>
+                <div class="stat-card flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style="background:color-mix(in srgb, var(--color-secondary) 12%, transparent);">
+                        <i class="ri-ticket-2-line text-lg" style="color:var(--color-secondary);"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-lg leading-none" style="color:var(--color-text-primary);">840K</div>
+                        <div class="text-xs mt-0.5" style="color:var(--color-text-muted);">Tickets sold</div>
+                    </div>
+                </div>
+                <div class="stat-card flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style="background:color-mix(in srgb, var(--color-tertiary) 12%, transparent);">
+                        <i class="ri-map-pin-line text-lg" style="color:var(--color-tertiary);"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-lg leading-none" style="color:var(--color-text-primary);">190+</div>
+                        <div class="text-xs mt-0.5" style="color:var(--color-text-muted);">Cities covered</div>
+                    </div>
+                </div>
+                <div class="stat-card flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style="background:color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                        <i class="ri-star-line text-lg" style="color:var(--color-primary);"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-lg leading-none" style="color:var(--color-text-primary);">4.9★</div>
+                        <div class="text-xs mt-0.5" style="color:var(--color-text-muted);">Avg rating</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── TICKER ── -->
+    <div class="ticker-outer rounded-xl mb-6 py-2.5">
+        <div class="ticker-track" id="ticker-track">
+            <!-- filled by JS -->
+        </div>
+    </div>
+
+    <!-- ── UPCOMING EVENTS ── -->
+    <section class="mb-2">
+
+        <!-- Section header + filter chips -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+            <div>
+                <p class="text-xs font-semibold uppercase tracking-widest mb-1" style="color:var(--color-primary);">
+                    ── Upcoming
+                </p>
+                <h2 class="text-2xl font-bold" style="color:var(--color-text-primary);">Don't Miss Out</h2>
+            </div>
+            <a href="#" class="text-sm flex items-center gap-1 transition-colors"
+                style="color:var(--color-text-muted);"
+                onmouseover="this.style.color='var(--color-primary)'"
+                onmouseout="this.style.color='var(--color-text-muted)'">
+                View all <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+        <!-- Category filter chips -->
+        <div class="flex flex-wrap gap-2 mb-6" id="filter-chips">
+            <button class="cat-chip active" onclick="setFilter(this,'All')"><i class="ri-apps-line"></i> All</button>
+            <button class="cat-chip" onclick="setFilter(this,'Music')"><i class="ri-music-line"></i> Music</button>
+            <button class="cat-chip" onclick="setFilter(this,'Tech')"><i class="ri-computer-line"></i> Tech</button>
+            <button class="cat-chip" onclick="setFilter(this,'Sports')"><i class="ri-run-line"></i> Sports</button>
+            <button class="cat-chip" onclick="setFilter(this,'Art')"><i class="ri-palette-line"></i> Art</button>
+            <button class="cat-chip" onclick="setFilter(this,'Food')"><i class="ri-restaurant-line"></i> Food</button>
+            <button class="cat-chip" onclick="setFilter(this,'Comedy')"><i class="ri-emotion-laugh-line"></i> Comedy</button>
+        </div>
+
+        <!-- Events grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="events-grid"></div>
+
+        <!-- Empty state -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <i class="ri-calendar-close-line text-5xl mb-3 block" style="color:var(--color-text-muted);"></i>
+            <p style="color:var(--color-text-muted);">No events match your search.</p>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+    /* ── Theme toggle ── */
+    const sidebarThemeBtn = document.getElementById('sidebar-theme-toggle');
+    const sunIcon  = sidebarThemeBtn?.querySelector('.sun-icon');
+    const moonIcon = sidebarThemeBtn?.querySelector('.moon-icon');
+
+    function updateThemeIcons(isDark) {
+        if (!sunIcon || !moonIcon) return;
+        sunIcon.style.display  = isDark ? 'none' : 'inline-block';
+        moonIcon.style.display = isDark ? 'inline-block' : 'none';
+    }
+
+    sidebarThemeBtn?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcons(isDark);
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        updateThemeIcons(true);
+    } else {
+        updateThemeIcons(false);
+    }
+
+    /* ── Event data ── */
+    const events = [
+        { id:1, title:'Tech Summit 2026',     category:'Tech',   date:'Apr 12',  venue:'Hyatt Regency',     price:79,  icon:'ri-computer-line',        col:'var(--color-primary)',   hot:true  },
+        { id:2, title:'City Marathon',         category:'Sports', date:'Apr 20',  venue:'Ratna Park',        price:25,  icon:'ri-run-line',              col:'var(--color-secondary)', hot:false },
+        { id:3, title:'Art Biennale Opening',  category:'Art',    date:'Apr 28',  venue:'Nepal Art Council', price:15,  icon:'ri-palette-line',          col:'var(--color-tertiary)',  hot:false },
+        { id:4, title:'Food & Wine Festival',  category:'Food',   date:'May 3',   venue:'Garden of Dreams',  price:35,  icon:'ri-restaurant-line',       col:'var(--color-secondary)', hot:true  },
+        { id:5, title:'Comedy Night Live',     category:'Comedy', date:'May 8',   venue:'LOL Club, Thamel',  price:22,  icon:'ri-emotion-laugh-line',    col:'var(--color-primary)',   hot:false },
+        { id:6, title:'Indie Music Showcase',  category:'Music',  date:'May 11',  venue:'Warehouse KTM',     price:18,  icon:'ri-music-line',            col:'var(--color-tertiary)',  hot:true  },
+        { id:7, title:'Hackathon KTM 2026',    category:'Tech',   date:'May 20',  venue:'BICC, Kathmandu',   price:0,   icon:'ri-code-s-slash-line',     col:'var(--color-primary)',   hot:false },
+        { id:8, title:'Yoga & Wellness Expo',  category:'Sports', date:'May 25',  venue:'Patan Durbar Sq.',  price:12,  icon:'ri-mental-health-line',    col:'var(--color-secondary)', hot:false },
+    ];
+
+    let activeFilter = 'All';
+    let searchTerm   = '';
+
+    function renderCards() {
+        const grid  = document.getElementById('events-grid');
+        const empty = document.getElementById('empty-state');
+
+        const filtered = events.filter(e => {
+            const catOk  = activeFilter === 'All' || e.category === activeFilter;
+            const srchOk = e.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           e.category.toLowerCase().includes(searchTerm.toLowerCase());
+            return catOk && srchOk;
+        });
+
+        if (!filtered.length) {
+            grid.innerHTML = '';
+            empty.classList.remove('hidden');
+            return;
+        }
+        empty.classList.add('hidden');
+
+        grid.innerHTML = filtered.map(e => `
+            <div class="event-card">
+                <!-- Thumb -->
+                <div class="event-thumb" style="background:color-mix(in srgb,${e.col} 10%,var(--color-surface));">
+                    <i class="${e.icon} text-5xl" style="color:${e.col};opacity:0.8;"></i>
+                    <!-- Badges -->
+                    <div style="position:absolute;top:10px;left:10px;display:flex;gap:6px;">
+                        ${e.hot ? `<span class="tag" style="background:color-mix(in srgb,var(--color-tertiary) 15%,transparent);color:var(--color-tertiary);border:1px solid color-mix(in srgb,var(--color-tertiary) 35%,transparent);">🔥 Hot</span>` : ''}
+                        <span class="tag" style="background:color-mix(in srgb,${e.col} 12%,transparent);color:${e.col};border:1px solid color-mix(in srgb,${e.col} 30%,transparent);">${e.category}</span>
+                    </div>
+                    <div style="position:absolute;top:10px;right:10px;">
+                        <span class="price-badge">${e.price === 0 ? 'FREE' : '$'+e.price}</span>
+                    </div>
+                </div>
+
+                <!-- Body -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-sm mb-2 leading-snug" style="color:var(--color-text-primary);">${e.title}</h3>
+                    <div class="flex items-center gap-1.5 text-xs mb-1" style="color:var(--color-text-muted);">
+                        <i class="ri-calendar-line"></i> ${e.date}, 2026
+                    </div>
+                    <div class="flex items-center gap-1.5 text-xs mb-4" style="color:var(--color-text-muted);">
+                        <i class="ri-map-pin-line"></i> ${e.venue}
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm font-semibold" style="color:var(--color-text-primary);">
+                            ${e.price === 0
+                                ? `<span style="color:var(--color-secondary);">Free Entry</span>`
+                                : `From <strong>$${e.price}</strong>`}
+                        </div>
+                        <button class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200"
+                            style="background:color-mix(in srgb,var(--color-primary) 10%,transparent);color:var(--color-primary);border:1px solid color-mix(in srgb,var(--color-primary) 30%,transparent);"
+                            onmouseover="this.style.background='var(--color-primary)';this.style.color='white';"
+                            onmouseout="this.style.background='color-mix(in srgb,var(--color-primary) 10%,transparent)';this.style.color='var(--color-primary)';">
+                            ${e.price === 0 ? 'Register' : 'Buy'} <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function setFilter(btn, filter) {
+        document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = filter;
+        renderCards();
+    }
+
+    /* ── Hero search ── */
+    document.getElementById('hero-search').addEventListener('input', e => {
+        searchTerm = e.target.value;
+        renderCards();
+    });
+
+    /* ── Ticker ── */
+    const tickerItems = [
+        { icon:'ri-music-line',       label:'Soundwave Festival' },
+        { icon:'ri-computer-line',    label:'Tech Summit 2026'   },
+        { icon:'ri-run-line',         label:'City Marathon'      },
+        { icon:'ri-palette-line',     label:'Art Biennale'       },
+        { icon:'ri-restaurant-line',  label:'Food & Wine Fair'   },
+        { icon:'ri-emotion-laugh-line', label:'Comedy Night'     },
+        { icon:'ri-mental-health-line', label:'Yoga Expo'        },
+    ];
+
+    function buildTicker() {
+        const track = document.getElementById('ticker-track');
+        const html  = tickerItems.map(t => `
+            <span class="flex items-center gap-2 mx-8 text-sm font-medium" style="color:var(--color-text-secondary);">
+                <i class="${t.icon}" style="color:var(--color-primary);"></i>
+                ${t.label}
+            </span>
+            <span class="mx-2 text-xs" style="color:var(--color-text-muted);">✦</span>
+        `).join('');
+        track.innerHTML = html + html; // duplicate for seamless loop
+    }
+
+    /* ── Init ── */
+    buildTicker();
+    renderCards();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
+</html>
